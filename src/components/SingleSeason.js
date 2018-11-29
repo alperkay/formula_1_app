@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getSeasons } from '../actions/seasonsAction';
+import { getSingleSeason } from '../actions/getSingleSeasonAction';
 
 class SingleSeason extends Component {
   componentDidMount() {
-    this.props.getSeasons(this.props.match.params.id);
+    this.props.getSingleSeason(this.props.match.params.id);
   }
   render() {
     return <div>Season: {this.props.match.params.id}</div>;
@@ -14,5 +14,5 @@ class SingleSeason extends Component {
 
 export default connect(
   null,
-  { getSeasons }
+  { getSingleSeason }
 )(SingleSeason);

@@ -1,12 +1,12 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
-export const getSeasons = year => dispatch => {
+export const getSingleSeason = year => dispatch => {
   axios
     .get(`http://ergast.com/api/f1/${year}/results/1.json`)
     .then(response => {
       dispatch({
-        type: actionTypes.GET_SEASONS,
+        type: actionTypes.GET_SINGLE_SEASON,
         payload: response.data.MRData.RaceTable.Races
       });
     });

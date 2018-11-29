@@ -1,1 +1,1 @@
-export const GET_SEASONS = 'GET_SEASONS';
+export const GET_SINGLE_SEASON = 'GET_SINGLE_SEASON';
