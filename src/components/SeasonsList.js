@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import { getSeasons } from '../actions/seasonsAction';
-import { connect } from 'react-redux';
+
+import { Link } from 'react-router-dom';
 
 class SeasonsList extends Component {
-  componentDidMount() {
-    this.props.getSeasons();
-  }
-
   createSeasonsList = () => {
     let list = [];
     for (let i = 2009; i < 2019; i++) {
       list.push(
-        <li key={i} onClick={() => console.log('hey')}>
-          {i}
+        <li key={i}>
+          <Link to={`/seasons/${i}`}>{i}</Link>
         </li>
       );
     }
@@ -28,7 +24,4 @@ class SeasonsList extends Component {
   }
 }
 
-export default connect(
-  null,
-  { getSeasons }
-)(SeasonsList);
+export default SeasonsList;
