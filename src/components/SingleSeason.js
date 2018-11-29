@@ -20,23 +20,21 @@ class SingleSeason extends Component {
     const { allDrivers, winner } = this.props;
     return (
       <div className="drivers_list">
-        <div>Season: {this.props.match.params.id}</div>
-        <div>
-          <ul>
-            {allDrivers.map(driver => (
-              <li
-                key={driver.driverId}
-                onClick={() => this.props.addFavorite(driver)}
-                style={{
-                  backgroundColor:
-                    driver.driverId === winner.driverId ? '#FFFF00' : null
-                }}
-              >
-                {driver.givenName} {driver.familyName}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h2>Season {this.props.match.params.id}</h2>
+        <ul>
+          {allDrivers.map(driver => (
+            <li
+              key={driver.driverId}
+              onClick={() => this.props.addFavorite(driver)}
+              style={{
+                backgroundColor:
+                  driver.driverId === winner.driverId ? '#FFFF00' : null
+              }}
+            >
+              {driver.givenName} {driver.familyName}
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

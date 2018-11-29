@@ -17,8 +17,9 @@ class SeasonsList extends Component {
 
   render() {
     return (
-      <div>
-        <ol>{this.createSeasonsList()}</ol>
+      <div className="seasons_list">
+        <h2>Seasons</h2>
+        <ul>{this.createSeasonsList()}</ul>
       </div>
     );
   }

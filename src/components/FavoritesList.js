@@ -8,10 +8,13 @@ class FavoritesList extends Component {
     const { favorites } = this.props;
     return (
       <div className="favorites_list">
-        <h1>Favorites</h1>
+        <h2>Favorites</h2>
         <ul>
           {favorites.map(fav => (
-            <li onClick={() => this.props.removeFavorite(fav.driverId)}>
+            <li
+              key={fav.driverId}
+              onClick={() => this.props.removeFavorite(fav.driverId)}
+            >
               {fav.givenName} {fav.familyName}
             </li>
           ))}
