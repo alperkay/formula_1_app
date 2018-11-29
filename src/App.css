@@ -7,3 +7,10 @@ li {
   margin-top: 10px;
   font-size: 20px;
 }
+
+.drivers_list {
+  float: left;
+}
+.favorites_list {
+  float: right;
+}

@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import seasonReducer from './seasonReducer';
+import allDriversReducer from './allDriversReducer';
+import winnerReducer from './winnerReducer';
+import favoritesReducer from './favoritesReducer';
 
 export default combineReducers({
-  season: seasonReducer
+  allDrivers: allDriversReducer,
+  winner: winnerReducer,
+  favorites: favoritesReducer
 });

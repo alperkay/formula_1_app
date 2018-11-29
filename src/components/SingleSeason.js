@@ -1,18 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getSingleSeason } from '../actions/getSingleSeasonAction';
+import { getSeasonsDrivers } from '../actions/getSeasonsDriversAction';
+import { getWinner } from '../actions/getWinnerAction';
+import { clearState } from '../actions/clearStateAction';
+import { addFavorite } from '../actions/favoritesAction';
 
 class SingleSeason extends Component {
   componentDidMount() {
-    this.props.getSingleSeason(this.props.match.params.id);
+    this.props.getSeasonsDrivers(this.props.match.params.id);
+    this.props.getWinner(this.props.match.params.id);
   }
+
+  componentWillUnmount() {
+    this.props.clearState();
+  }
+
   render() {
-    return <div>Season: {this.props.match.params.id}</div>;
+    const { allDrivers, winner } = this.props;
+    return (
+      <div className="drivers_list">
+        <div>Season: {this.props.match.params.id}</div>
+        <div>
+          <ul>
+            {allDrivers.map(driver => (
+              <li
+                key={driver.driverId}
+                onClick={() => this.props.addFavorite(driver)}
+                style={{
+                  backgroundColor:
+                    driver.driverId === winner.driverId ? '#FFFF00' : null
+                }}
+              >
+                {driver.givenName} {driver.familyName}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
   }
 }
 
+const MapStateToProps = state => ({
+  allDrivers: state.allDrivers,
+  winner: state.winner
+});
+
 export default connect(
-  null,
-  { getSingleSeason }
+  MapStateToProps,
+  { getSeasonsDrivers, getWinner, clearState, addFavorite }
 )(SingleSeason);
