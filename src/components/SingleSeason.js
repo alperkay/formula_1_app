@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { getSeasonsDrivers } from '../actions/getSeasonsDriversAction';
 import { getWinner } from '../actions/getWinnerAction';
 import { clearState } from '../actions/clearStateAction';
 import { addFavorite } from '../actions/favoritesAction';
+
+import Icon from './BackIcon';
 
 class SingleSeason extends Component {
   componentDidMount() {
@@ -20,7 +23,12 @@ class SingleSeason extends Component {
     const { allDrivers, winner } = this.props;
     return (
       <div className="drivers_list">
-        <h2>Season {this.props.match.params.id}</h2>
+        <Link to="/">
+          <h2>
+            <Icon />
+            Season {this.props.match.params.id}
+          </h2>
+        </Link>
         <ul>
           {allDrivers.map(driver => (
             <li

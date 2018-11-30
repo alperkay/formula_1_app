@@ -1,19 +1,91 @@
+.App {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'left left left right right right';
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  max-width: 800px;
+}
+
+a:-webkit-any-link {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
 ul {
   list-style-type: none;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 350px;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.back_icon {
+  height: 25px;
+  float: left;
+  margin-top: 2px;
 }
 
 li {
   cursor: pointer;
   margin-top: 10px;
   font-size: 20px;
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  font: Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
 }
 
-.seasons_list {
-  float: left;
+li:last-child {
+  border: none;
 }
-.drivers_list {
-  float: left;
+
+li:hover {
+  font-size: 25px;
+  background: #f6f6f6;
 }
+
+.header,
+.seasons_list,
+.drivers_list,
 .favorites_list {
-  float: right;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.header {
+  grid-area: header;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.seasons_list,
+.drivers_list,
+.favorites_list {
+  padding: 10px;
+  width: 400px;
+}
+
+.seasons_list,
+.drivers_list {
+  grid-area: left;
+}
+
+.favorites_list {
+  grid-area: right;
+}
+
+@media (max-width: 900px) {
+  .App {
+    grid-template-areas:
+      'header header header header header header'
+      'left left left left left left'
+      'right right right right right right';
+  }
 }

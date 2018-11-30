@@ -14,9 +14,11 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <h1>
-            <Link to="/">Formula 1 App</Link>
-          </h1>
+          <div className="header">
+            <h1>
+              <Link to="/">Formula 1 App</Link>
+            </h1>
+          </div>
           <Route exact path="/" component={SeasonsList} />
           <Route exact path="/seasons/:id" component={SingleSeason} />
           <FavoritesList />
