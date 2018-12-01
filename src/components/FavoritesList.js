@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import DeleteIcon from './DeleteIcon';
+
 import { removeFavorite } from '../actions/favoritesAction';
 
 class FavoritesList extends Component {
@@ -8,7 +10,7 @@ class FavoritesList extends Component {
     const { favorites } = this.props;
     return (
       <div className="favorites_list">
-        <h2>Favorites</h2>
+        <h2>Your Favorite Drivers</h2>
         <ul>
           {favorites.map(fav => (
             <li
@@ -16,6 +18,7 @@ class FavoritesList extends Component {
               onClick={() => this.props.removeFavorite(fav.driverId)}
             >
               {fav.givenName} {fav.familyName}
+              <DeleteIcon />
             </li>
           ))}
         </ul>

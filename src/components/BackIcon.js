@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Icon = () => (
+const BackIcon = () => (
   <svg
     className="back_icon"
     xmlns="http://www.w3.org/2000/svg"
@@ -10,4 +10,4 @@ const Icon = () => (
   </svg>
 );
 
-export default Icon;
+export default BackIcon;

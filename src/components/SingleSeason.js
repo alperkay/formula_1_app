@@ -7,7 +7,8 @@ import { getWinner } from '../actions/getWinnerAction';
 import { clearState } from '../actions/clearStateAction';
 import { addFavorite } from '../actions/favoritesAction';
 
-import Icon from './BackIcon';
+import BackIcon from './BackIcon';
+import AddIcon from './AddIcon';
 
 class SingleSeason extends Component {
   componentDidMount() {
@@ -25,8 +26,8 @@ class SingleSeason extends Component {
       <div className="drivers_list">
         <Link to="/">
           <h2>
-            <Icon />
-            Season {this.props.match.params.id}
+            <BackIcon />
+            Season {this.props.match.params.id} Drivers
           </h2>
         </Link>
         <ul>
@@ -40,6 +41,7 @@ class SingleSeason extends Component {
               }}
             >
               {driver.givenName} {driver.familyName}
+              <AddIcon />
             </li>
           ))}
         </ul>
