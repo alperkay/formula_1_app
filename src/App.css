@@ -32,6 +32,12 @@ ul {
 .add_icon {
   height: 23px;
   float: right;
+  visibility: hidden;
+}
+
+li:hover .add_icon,
+li:hover .delete_icon {
+  visibility: visible;
 }
 
 li {

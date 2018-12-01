@@ -37,7 +37,8 @@ class SingleSeason extends Component {
               onClick={() => this.props.addFavorite(driver)}
               style={{
                 backgroundColor:
-                  driver.driverId === winner.driverId ? '#FFFF00' : null
+                  driver.driverId === winner.driverId ? '#FFFF00' : null,
+                fontWeight: driver.driverId === winner.driverId ? 'bold' : null
               }}
             >
               {driver.givenName} {driver.familyName}
