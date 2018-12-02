@@ -1,3 +1,14 @@
+## Formula 1 App
+
+This application uses ergast Formula 1 API to allow users to browse through a list of drivers per season and make themselves a favorite drivers list.
+
+* The favorites list is customizable meaning that the drivers can be added as well as removed from the list.
+* The app was tested on Chrome, Firefox and Safari.
+* The app is built with React, Redux, Thunk and Axios. 
+* In terms of UI design, it also makes use of few SVG icons from Font Awesome and Ionicons. 
+* The API used is http://ergast.com/mrd/ .
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
