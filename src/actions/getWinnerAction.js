@@ -11,5 +11,11 @@ export const getWinner = year => dispatch => {
           response.data.MRData.StandingsTable.StandingsLists[0]
             .DriverStandings[0].Driver
       });
-    });
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err
+      })
+    );
 };

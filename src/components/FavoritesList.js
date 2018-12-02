@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import DeleteIcon from './DeleteIcon';
 
@@ -10,7 +11,7 @@ class FavoritesList extends Component {
     const { favorites } = this.props;
     return (
       <div className="favorites_list">
-        <h2>Your Favorite Drivers</h2>
+        <h2>Favorites</h2>
         <ul>
           {favorites.map(fav => (
             <li
@@ -26,6 +27,11 @@ class FavoritesList extends Component {
     );
   }
 }
+
+FavoritesList.PropTypes = {
+  favorites: PropTypes.array.isRequired,
+  removeFavorite: PropTypes.func.isRequired
+};
 
 const MapStateToProps = state => ({
   favorites: state.favorites

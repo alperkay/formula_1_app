@@ -19,6 +19,15 @@ class App extends Component {
               <Link to="/">Formula 1 App</Link>
             </h1>
           </div>
+          <div className="info">
+            <p>
+              You can select your favorite drivers from the 'Seasons' list and
+              make yourself a 'Favorites' list. Both lists are scrollable and
+              you can modify your favorites list by clicking on each driver
+              which will remove that driver from the list. The driver with a
+              trophy icon before his name is the champion of that season.
+            </p>
+          </div>
           <Route exact path="/" component={SeasonsList} />
           <Route exact path="/seasons/:id" component={SingleSeason} />
           <FavoritesList />

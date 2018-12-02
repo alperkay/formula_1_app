@@ -3,3 +3,4 @@ export const GET_SEASONS_WINNER = 'GET_SEASONS_WINNER';
 export const CLEAR_STATE = 'CLEAR_STATE';
 export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const REMOVE_FAVORITES = 'REMOVE_FAVORITES';
+export const GET_ERRORS = 'GET_ERRORS';

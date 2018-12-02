@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getSeasonsDrivers } from '../actions/getSeasonsDriversAction';
 import { getWinner } from '../actions/getWinnerAction';
@@ -9,6 +10,7 @@ import { addFavorite } from '../actions/favoritesAction';
 
 import BackIcon from './BackIcon';
 import AddIcon from './AddIcon';
+import TrophyIcon from './TrophyIcon';
 
 class SingleSeason extends Component {
   componentDidMount() {
@@ -27,7 +29,7 @@ class SingleSeason extends Component {
         <Link to="/">
           <h2>
             <BackIcon />
-            Season {this.props.match.params.id} Drivers
+            Season {this.props.match.params.id}
           </h2>
         </Link>
         <ul>
@@ -36,12 +38,11 @@ class SingleSeason extends Component {
               key={driver.driverId}
               onClick={() => this.props.addFavorite(driver)}
               style={{
-                backgroundColor:
-                  driver.driverId === winner.driverId ? '#FFFF00' : null,
                 fontWeight: driver.driverId === winner.driverId ? 'bold' : null
               }}
             >
               {driver.givenName} {driver.familyName}
+              {driver.driverId === winner.driverId ? <TrophyIcon /> : null}
               <AddIcon />
             </li>
           ))}
@@ -50,6 +51,15 @@ class SingleSeason extends Component {
     );
   }
 }
+
+SingleSeason.PropTypes = {
+  allDrivers: PropTypes.array.isRequired,
+  winner: PropTypes.object.isRequired,
+  getSeasonsDrivers: PropTypes.func.isRequired,
+  getWinner: PropTypes.func.isRequired,
+  clearState: PropTypes.func.isRequired,
+  addFavorite: PropTypes.func.isRequired
+};
 
 const MapStateToProps = state => ({
   allDrivers: state.allDrivers,
